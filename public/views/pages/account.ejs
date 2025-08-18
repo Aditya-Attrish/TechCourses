@@ -1,0 +1,130 @@
+<%- include('../components/header', {title: `My Account | TechCourse Market`}) %>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body text-center py-4">
+                        <input type="file" id="uploadimg" class="d-none" name="image" accept="image/*">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg"
+                            class="profile-img rounded-circle mb-3" alt="Profile">
+                        <h5 class="card-title mb-1">John Doe</h5>
+                        <p class="text-muted mb-3">Member since June 2022</p>
+                        <div class="d-grid">
+                            <a href="/user/edit" class="btn btn-outline-primary btn-sm">Edit Profile</a>
+                        </div>
+                    </div>
+                    <div class="list-group list-group-flush account-nav">
+                        <a href="/account" class="list-group-item list-group-item-action active">
+                            <i class="fab fa-person me-2"></i> Profile
+                        </a>
+                        <a href="/account/security" class="list-group-item list-group-item-action">
+                            <i class="fab fa-shield-lock me-2"></i> Security
+                        </a>
+                        <a href="/purchases" class="list-group-item list-group-item-action">
+                            <i class="fab fa-receipt me-2"></i> Purchase History
+                        </a>
+                        <a href="/account/notifications" class="list-group-item list-group-item-action">
+                            <i class="fab fa-bell me-2"></i> Notifications
+                        </a>
+                        <a href="/account/settings" class="list-group-item list-group-item-action">
+                            <i class="fab fa-gear me-2"></i> Settings
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Account Content -->
+            <div class="col-lg-9">
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h2 class="h5 mb-0">Profile Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" disabled id="firstName" value="John">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" disabled id="lastName" value="Doe">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" disabled id="email" value="john.doe@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea class="form-control" id="bio" disabled
+                                rows="3">Frontend developer passionate about React and UX design. Currently learning advanced JavaScript patterns.</textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header bg-white">
+                        <h2 class="h5 mb-0">Learning Statistics</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="h3 mb-1">8</div>
+                                <div class="text-muted">Courses Enrolled</div>
+                            </div>
+                            <div class="col-md-4 mb-3 mb-md-0">
+                                <div class="h3 mb-1">42</div>
+                                <div class="text-muted">Hours Watched</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="h3 mb-1">3</div>
+                                <div class="text-muted">Certificates Earned</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h2 class="h5 mb-0">Recently Viewed Courses</h2>
+                        <a href="/my-courses" class="btn btn-sm btn-outline-primary">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <img src="https://example.com/thumbnails/react.jpg" class="rounded me-3" width="80"
+                                        height="45" alt="React Course">
+                                    <div>
+                                        <h6 class="mb-1">React JS Masterclass</h6>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar" style="width: 65%;"></div>
+                                        </div>
+                                        <small class="text-muted">65% completed</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex">
+                                    <img src="https://example.com/thumbnails/python.jpg" class="rounded me-3" width="80"
+                                        height="45" alt="Python Course">
+                                    <div>
+                                        <h6 class="mb-1">Python for Beginners</h6>
+                                        <div class="progress" style="height: 5px;">
+                                            <div class="progress-bar" style="width: 30%;"></div>
+                                        </div>
+                                        <small class="text-muted">30% completed</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../components/footer') %>

@@ -1,0 +1,119 @@
+<%- include('../components/header', {title: `Order Confirmed | TechCourse Market`}) %>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body text-center p-5">
+                            <div class="mb-4">
+                                <div class="d-inline-flex align-items-center justify-content-center bg-success bg-opacity-10 rounded-circle" style="width: 80px; height: 80px;">
+                                    <i class="fas fa-check-lg text-success" style="font-size: 2.5rem;"></i>
+                                </div>
+                            </div>
+                            <h1 class="h2 mb-3">Order Confirmed!</h1>
+                            <p class="lead mb-4">Thank you for your purchase. Your courses are now available in your account.</p>
+                            
+                            <div class="card mb-4">
+                                <div class="card-header bg-white">
+                                    <h2 class="h5 mb-0">Order Details</h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row mb-2">
+                                        <div class="col-6 text-start">
+                                            <span class="text-muted">Order Number:</span>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <span>TL-20230815-12345</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6 text-start">
+                                            <span class="text-muted">Date:</span>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <span>August 15, 2023</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-6 text-start">
+                                            <span class="text-muted">Total:</span>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <span>$169.98</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 text-start">
+                                            <span class="text-muted">Payment Method:</span>
+                                        </div>
+                                        <div class="col-6 text-end">
+                                            <span>Visa ending in 4242</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card mb-4">
+                                <div class="card-header bg-white">
+                                    <h2 class="h5 mb-0">Your Courses</h2>
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="list-group list-group-flush">
+                                        <div class="list-group-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-3">
+                                                    <img src="python-bootcamp.jpg" alt="Complete Python Bootcamp" class="img-fluid rounded">
+                                                </div>
+                                                <div class="col-7">
+                                                    <h3 class="h6 mb-1">Complete Python Bootcamp</h3>
+                                                    <small class="text-muted">By Jane Smith</small>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <a href="/learn/python-bootcamp" class="btn btn-sm btn-primary">Start</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <div class="row align-items-center">
+                                                <div class="col-3">
+                                                    <img src="react-course.jpg" alt="Modern React with Redux" class="img-fluid rounded">
+                                                </div>
+                                                <div class="col-7">
+                                                    <h3 class="h6 mb-1">Modern React with Redux</h3>
+                                                    <small class="text-muted">By John Doe</small>
+                                                </div>
+                                                <div class="col-2 text-end">
+                                                    <a href="/learn/react-course" class="btn btn-sm btn-primary">Start</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header bg-white">
+                                    <h2 class="h5 mb-0">What's Next?</h2>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check-circle-fill text-success me-2"></i> Access your courses anytime from <a href="/my-courses">My Courses</a></li>
+                                        <li class="mb-2"><i class="fas fa-check-circle-fill text-success me-2"></i> Download the TechLearn mobile app for learning on the go</li>
+                                        <li><i class="fas fa-check-circle-fill text-success me-2"></i> Join our student community for support and networking</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <a href="/" class="btn btn-outline-secondary me-2">Continue Shopping</a>
+                                <a href="/my-courses" class="btn btn-primary">Go to My Courses</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<%- include('../components/footer') %>

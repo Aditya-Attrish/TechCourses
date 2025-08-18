@@ -1,0 +1,245 @@
+<%- include('../components/header', {title: `edit my profile | TechCourse Market`}) %>
+
+    <style>
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .profile-picture:hover {
+            opacity: 0.8;
+        }
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .btn-upload {
+            border: 1px solid #0d6efd;
+            color: #0d6efd;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+        }
+    </style>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white">
+                        <h2 class="h5 mb-0">Edit Profile</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="profileForm" method="post" action="/api/v1/user/edit" enctype="multipart/form-data">
+                            <!-- Profile Picture Section -->
+                            <div class="text-center mb-4">
+                                <input type="file" id="profileImage" name="avatar" accept="image/*" class="d-none">
+                                <label for="profileImage">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" 
+                                         class="profile-picture rounded-circle mb-2" 
+                                         id="profilePreview"
+                                         alt="Profile Picture">
+                                </label>
+                                <div class="text-muted small">Click image to change</div>
+                                <div id="imageError" class="invalid-feedback d-block"></div>
+                            </div>
+
+                            <!-- Personal Information -->
+                            <div class="mb-4">
+                                <h5 class="mb-3 border-bottom pb-2">Personal Information</h5>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" name="firstname" id="firstName" value="John" required>
+                                        <div class="invalid-feedback">
+                                            Please provide your first name.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" name="lastName" id="lastName" value="Doe" required>
+                                        <div class="invalid-feedback">
+                                            Please provide your last name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" name="email" id="email" value="john.doe@example.com" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email address.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" name="username" id="username" value="johndoe" required>
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please choose a username.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Professional Information -->
+                            <div class="mb-4">
+                                <h5 class="mb-3 border-bottom pb-2">Professional Information</h5>
+                                <div class="mb-3">
+                                    <label for="jobTitle" class="form-label">Job Title</label>
+                                    <input type="text" class="form-control" name="jobTitle" id="jobTitle" value="Frontend Developer">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="company" class="form-label">Company</label>
+                                    <input type="text" class="form-control" name="company" id="company" value="Tech Solutions Inc.">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="role" class="form-label">Role</label>
+                                    <select class="form-select" name="role" id="role">
+                                        <option value="">Select your industry</option>
+                                        <option value="Student" selected>Technology</option>
+                                        <option value="Admin">Finance</option>
+                                        <option value="instructor">Education</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="industry" class="form-label">Industry</label>
+                                    <select class="form-select" name="industry" id="industry">
+                                        <option value="">Select your industry</option>
+                                        <option value="tech" selected>Technology</option>
+                                        <option value="finance">Finance</option>
+                                        <option value="education">Education</option>
+                                        <option value="healthcare">Healthcare</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Bio Section -->
+                            <div class="mb-4">
+                                <h5 class="mb-3 border-bottom pb-2">About You</h5>
+                                <div class="mb-3">
+                                    <label for="bio" class="form-label">Bio</label>
+                                    <textarea class="form-control" name="bio" id="bio" rows="4">Frontend developer passionate about React and UX design. Currently learning advanced JavaScript patterns.</textarea>
+                                    <div class="form-text">Tell others about yourself (max 250 characters)</div>
+                                </div>
+                            </div>
+
+                            <!-- Social Links -->
+                            <div class="mb-4">
+                                <h5 class="mb-3 border-bottom pb-2">Social Links</h5>
+                                <div class="mb-3">
+                                    <label for="twitter" class="form-label">Twitter</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text">@</span>
+                                        <input type="text" class="form-control" id="twitter" placeholder="username" value="johndoe">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="linkedin" class="form-label">LinkedIn</label>
+                                    <input type="url" class="form-control" name="linkedin" id="linkedin" placeholder="https://linkedin.com/in/yourprofile" value="https://linkedin.com/in/johndoe">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="github" class="form-label">GitHub</label>
+                                    <input type="url" class="form-control" name="github" id="github" placeholder="https://github.com/username" value="https://github.com/johndoe">
+                                </div>
+                            </div>
+
+                            <!-- Form Actions -->
+                            <div class="d-flex justify-content-between mt-4">
+                                <a href="/user" class="btn btn-outline-secondary">Cancel</a>
+                                <button type="submit" class="btn btn-primary">
+                                    <span id="saveSpinner" class="spinner-border spinner-border-sm d-none" role="status"></span>
+                                    Save Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Profile picture upload preview
+        document.getElementById('profileImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            alert(file)
+            if (file) {
+                if (!file.type.match('image.*')) {
+                    document.getElementById('imageError').textContent = 'Please select an image file (JPEG, PNG, GIF)';
+                    return;
+                }
+                
+                if (file.size > 2 * 1024 * 1024) { // 2MB limit
+                    document.getElementById('imageError').textContent = 'Image must be less than 2MB';
+                    return;
+                }
+                
+                document.getElementById('imageError').textContent = '';
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    document.getElementById('profilePreview').src = event.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Form validation
+        (function() {
+            'use strict';
+            
+            const form = document.getElementById('profileForm');
+            
+            // form.addEventListener('submit', function(event) {
+            //     if (!form.checkValidity()) {
+            //         event.preventDefault();
+            //         event.stopPropagation();
+            //     } else {
+            //         // Show loading spinner
+            //         document.getElementById('saveSpinner').classList.remove('d-none');
+                    
+            //         // Simulate form submission (replace with actual AJAX call)
+            //         setTimeout(function() {
+            //             alert('Profile updated successfully!');
+            //             document.getElementById('saveSpinner').classList.add('d-none');
+            //         }, 1500);
+                    
+            //         event.preventDefault();
+            //     }
+                
+            //     form.classList.add('was-validated');
+            // }, false);
+            
+            // Real-time username validation
+            document.getElementById('username').addEventListener('input', function() {
+                const username = this.value.trim();
+                if (username.length < 3) {
+                    this.setCustomValidity('Username must be at least 3 characters');
+                } else if (!/^[a-zA-Z0-9_]+$/.test(username)) {
+                    this.setCustomValidity('Username can only contain letters, numbers, and underscores');
+                } else {
+                    this.setCustomValidity('');
+                }
+            });
+        })();
+    </script>
+
+<%- include('../components/footer') %>

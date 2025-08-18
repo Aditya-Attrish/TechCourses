@@ -1,0 +1,168 @@
+<%- include('../components/header', {title: `My Purchase | TechCourse Market`}) %>
+
+    <style>
+        .purchase-card {
+            transition: transform 0.2s;
+        }
+        .purchase-card:hover {
+            transform: translateY(-2px);
+        }
+        .invoice-badge {
+            font-size: 0.75rem;
+        }
+    </style>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body text-center py-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle mb-3" width="80" height="80" alt="Profile">
+                        <h5 class="card-title mb-1">John Doe</h5>
+                        <p class="text-muted mb-3">Member since June 2022</p>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="/account" class="list-group-item list-group-item-action">
+                            <i class="bi bi-person me-2"></i> Profile
+                        </a>
+                        <a href="/purchases" class="list-group-item list-group-item-action active">
+                            <i class="bi bi-receipt me-2"></i> Purchase History
+                        </a>
+                        <a href="/account/security" class="list-group-item list-group-item-action">
+                            <i class="bi bi-shield-lock me-2"></i> Security
+                        </a>
+                        <a href="/account/settings" class="list-group-item list-group-item-action">
+                            <i class="bi bi-gear me-2"></i> Settings
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchases Content -->
+            <div class="col-lg-9">
+                <div class="card mb-4">
+                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                        <h1 class="h5 mb-0">Purchase History</h1>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown">
+                                <i class="bi bi-funnel"></i> Filter
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item active" href="#">All Purchases</a></li>
+                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                <li><a class="dropdown-item" href="#">Last 6 Months</a></li>
+                                <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Order</th>
+                                        <th>Date</th>
+                                        <th>Items</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#TL-2023-158</td>
+                                        <td>Aug 15, 2023</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://example.com/thumbnails/react.jpg" class="rounded me-2" width="40" height="25" alt="React Course">
+                                                <span>React JS Masterclass</span>
+                                            </div>
+                                        </td>
+                                        <td>$59.99</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Invoice</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TL-2023-142</td>
+                                        <td>Jul 28, 2023</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img src="https://example.com/thumbnails/python.jpg" class="rounded me-2" width="40" height="25" alt="Python Course">
+                                                <span>Python for Beginners</span>
+                                            </div>
+                                        </td>
+                                        <td>$29.99</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Invoice</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#TL-2023-117</td>
+                                        <td>Jun 10, 2023</td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <img src="https://example.com/thumbnails/webdev.jpg" class="rounded me-2" width="40" height="25" alt="Web Dev Course">
+                                                    <span>Complete Web Development Bootcamp</span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>$129.98</td>
+                                        <td><span class="badge bg-success">Completed</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Invoice</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h2 class="h5 mb-0">Billing Information</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <h3 class="h6">Payment Methods</h3>
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <i class="bi bi-credit-card"></i> Visa ending in 4242
+                                                <span class="badge bg-primary invoice-badge ms-2">Default</span>
+                                            </div>
+                                            <button class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-plus"></i> Add Payment Method
+                                </button>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="h6">Billing Address</h3>
+                                <address>
+                                    <strong>John Doe</strong><br>
+                                    123 Main Street<br>
+                                    Apt 4B<br>
+                                    New York, NY 10001<br>
+                                    United States
+                                </address>
+                                <button class="btn btn-sm btn-outline-secondary">Edit Address</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('../components/footer') %>

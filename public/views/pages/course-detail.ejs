@@ -1,0 +1,467 @@
+<%- include('../components/header', {title: `Complete React Developer 2023 | TechCourse Market`}) %>
+
+    <!-- Course Header -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="courses.html">Courses</a></li>
+                            <li class="breadcrumb-item"><a href="#">Web Development</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Complete React Developer 2023</li>
+                        </ol>
+                    </nav>
+                    <h1 class="fw-bold mb-3">Complete React Developer 2023</h1>
+                    <p class="lead">Master React with hooks, context, and build real projects.</p>
+                    <div class="d-flex align-items-center mb-3">
+                        <span class="text-warning me-2">
+                            <i class="fas fa-star"></i> 4.9
+                        </span>
+                        <span class="text-muted me-3">(1,245 ratings)</span>
+                        <span class="text-muted">
+                            <i class="fas fa-user-graduate me-1"></i> 12,500 students
+                        </span>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <span class="badge bg-success">Web Development</span>
+                        <span class="badge bg-info">JavaScript</span>
+                        <span class="badge bg-primary">Frontend</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <img src="images/instructor1.jpg" class="rounded-circle me-2" width="40" alt="Instructor">
+                        <div>
+                            <p class="mb-0 small">Created by <strong>Sarah Johnson</strong></p>
+                            <p class="mb-0 small text-muted">Senior Frontend Developer at TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card course-purchase-card">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <img src="images/course1.jpg" class="img-fluid rounded" alt="Course Thumbnail">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h3 class="mb-0 text-primary">$89.99</h3>
+                                <span class="text-danger text-decoration-line-through">$129.99</span>
+                            </div>
+                            <div class="d-grid gap-2 mb-3">
+                                <button class="btn btn-primary btn-lg">
+                                    <i class="fas fa-shopping-cart me-2"></i> Enroll Now
+                                </button>
+                                <button class="btn btn-outline-secondary">
+                                    <i class="far fa-heart me-2"></i> Add to Wishlist
+                                </button>
+                            </div>
+                            <ul class="list-unstyled small">
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 32 hours on-demand video</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 15 articles</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 8 coding exercises</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Full lifetime access</li>
+                                <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificate of completion</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!-- Course Tabs -->
+                    <ul class="nav nav-tabs mb-4" id="courseTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button">Overview</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="curriculum-tab" data-bs-toggle="tab" data-bs-target="#curriculum" type="button">Curriculum</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="instructor-tab" data-bs-toggle="tab" data-bs-target="#instructor" type="button">Instructor</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button">Reviews</button>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content" id="courseTabsContent">
+                        <!-- Overview Tab -->
+                        <div class="tab-pane fade show active" id="overview" role="tabpanel">
+                            <h3 class="mb-4">What you'll learn</h3>
+                            <div class="row mb-5">
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Build enterprise-level React applications</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Master React hooks and context API</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Implement advanced state management</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Create reusable component libraries</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Optimize React app performance</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Test React applications</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Deploy React apps to production</li>
+                                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Work with REST APIs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h3 class="mb-4">Course Description</h3>
+                            <p>This React Developer Course is the ultimate guide to becoming a React developer in 2023. You'll learn how to build modern, fast, and scalable React applications from the ground up.</p>
+                            <p>We'll start with the fundamentals of React including components, state, props, and the React lifecycle. Then we'll dive into hooks, context, and advanced state management patterns. You'll learn how to build reusable component libraries, optimize performance, test your applications, and deploy to production.</p>
+                            <p>By the end of this course, you'll be able to build enterprise-level React applications with confidence. You'll have a portfolio of projects to showcase to potential employers, and you'll understand the React ecosystem inside and out.</p>
+                            
+                            <h3 class="mb-4 mt-5">Who this course is for:</h3>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-user me-2 text-primary"></i> JavaScript developers who want to learn React</li>
+                                <li class="mb-2"><i class="fas fa-user me-2 text-primary"></i> Frontend developers looking to upgrade their skills</li>
+                                <li class="mb-2"><i class="fas fa-user me-2 text-primary"></i> Full-stack developers who want to specialize in frontend</li>
+                                <li class="mb-2"><i class="fas fa-user me-2 text-primary"></i> Anyone who wants to build modern web applications</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Curriculum Tab -->
+                        <div class="tab-pane fade" id="curriculum" role="tabpanel">
+                            <div class="accordion" id="curriculumAccordion">
+                                <!-- Section 1 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#section1">
+                                            Section 1: React Fundamentals
+                                        </button>
+                                    </h2>
+                                    <div id="section1" class="accordion-collapse collapse show" data-bs-parent="#curriculumAccordion">
+                                        <div class="accordion-body">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <i class="far fa-play-circle me-2 text-primary"></i>
+                                                        <span>Introduction to React</span>
+                                                    </div>
+                                                    <span class="badge bg-light text-dark">15 min</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <i class="far fa-play-circle me-2 text-primary"></i>
+                                                        <span>Setting up your development environment</span>
+                                                    </div>
+                                                    <span class="badge bg-light text-dark">22 min</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <i class="far fa-play-circle me-2 text-primary"></i>
+                                                        <span>Your first React component</span>
+                                                    </div>
+                                                    <span class="badge bg-light text-dark">18 min</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <i class="far fa-file-alt me-2 text-info"></i>
+                                                        <span>Reading: React Component Lifecycle</span>
+                                                    </div>
+                                                    <span class="badge bg-light text-dark">10 min</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Section 2 -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#section2">
+                                            Section 2: React Hooks
+                                        </button>
+                                    </h2>
+                                    <div id="section2" class="accordion-collapse collapse" data-bs-parent="#curriculumAccordion">
+                                        <div class="accordion-body">
+                                            <ul class="list-group list-group-flush">
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <i class="far fa-play-circle me-2 text-primary"></i>
+                                                        <span>Introduction to Hooks</span>
+                                                    </div>
+                                                    <span class="badge bg-light text-dark">12 min</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <i class="far fa-play-circle me-2 text-primary"></i>
+                                                        <span>useState in depth</span>
+                                                    </div>
+                                                    <span class="badge bg-light text-dark">25 min</span>
+                                                </li>
+                                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <i class="far fa-play-circle me-2 text-primary"></i>
+                                                        <span>useEffect and side effects</span>
+                                                    </div>
+                                                    <span class="badge bg-light text-dark">30 min</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- More sections would go here -->
+                            </div>
+                        </div>
+                        
+                        <!-- Instructor Tab -->
+                        <div class="tab-pane fade" id="instructor" role="tabpanel">
+                            <div class="d-flex mb-4">
+                                <img src="images/instructor1.jpg" class="rounded-circle me-4" width="120" alt="Instructor">
+                                <div>
+                                    <h3>Sarah Johnson</h3>
+                                    <p class="text-muted">Senior Frontend Developer at TechCorp</p>
+                                    <div class="d-flex mb-3">
+                                        <div class="me-4">
+                                            <div class="h4 mb-0">4.9</div>
+                                            <small class="text-muted">Instructor Rating</small>
+                                        </div>
+                                        <div class="me-4">
+                                            <div class="h4 mb-0">24,560</div>
+                                            <small class="text-muted">Students</small>
+                                        </div>
+                                        <div>
+                                            <div class="h4 mb-0">8</div>
+                                            <small class="text-muted">Courses</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>Sarah is a senior frontend developer with over 10 years of experience building web applications. She specializes in React and has worked with companies like Google, Facebook, and Airbnb.</p>
+                            <p>Sarah is passionate about teaching and has helped thousands of students learn React through her courses. Her teaching style focuses on practical, real-world examples that you can apply immediately in your own projects.</p>
+                            <p>When she's not coding or teaching, Sarah enjoys hiking, photography, and playing the piano.</p>
+                        </div>
+                        
+                        <!-- Reviews Tab -->
+                        <div class="tab-pane fade" id="reviews" role="tabpanel">
+                            <div class="row mb-5">
+                                <div class="col-md-4 text-center">
+                                    <div class="display-4 fw-bold mb-2">4.9</div>
+                                    <div class="text-warning mb-2">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p class="text-muted">Course Rating</p>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>5 stars</span>
+                                            <span>85%</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>4 stars</span>
+                                            <span>10%</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 10%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>3 stars</span>
+                                            <span>3%</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 3%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>2 stars</span>
+                                            <span>1%</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 1%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>1 star</span>
+                                            <span>1%</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 1%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mb-4">Student Reviews</h4>
+                            
+                            <!-- Review 1 -->
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="images/user1.jpg" class="rounded-circle me-3" width="50" alt="User">
+                                        <div>
+                                            <h5 class="mb-0">Michael Chen</h5>
+                                            <div class="text-warning small">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5>Best React Course I've Taken</h5>
+                                    <p>This course completely transformed my React skills. The projects are practical and the explanations are clear. I went from beginner to confident React developer in just 2 months!</p>
+                                    <p class="text-muted small mb-0">Posted 2 months ago</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Review 2 -->
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="d-flex mb-3">
+                                        <img src="images/user2.jpg" class="rounded-circle me-3" width="50" alt="User">
+                                        <div>
+                                            <h5 class="mb-0">David Wilson</h5>
+                                            <div class="text-warning small">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star-half-alt"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h5>Great Content, Well Structured</h5>
+                                    <p>The course is very well organized and covers everything you need to know about React. The instructor explains complex concepts in an easy-to-understand way.</p>
+                                    <p class="text-muted small mb-0">Posted 1 month ago</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Review Form -->
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="mb-4">Write a Review</h5>
+                                    <form>
+                                        <div class="mb-3">
+                                            <label class="form-label">Rating</label>
+                                            <div class="rating-stars">
+                                                <i class="far fa-star text-warning fs-4 me-1"></i>
+                                                <i class="far fa-star text-warning fs-4 me-1"></i>
+                                                <i class="far fa-star text-warning fs-4 me-1"></i>
+                                                <i class="far fa-star text-warning fs-4 me-1"></i>
+                                                <i class="far fa-star text-warning fs-4"></i>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="reviewTitle" class="form-label">Title</label>
+                                            <input type="text" class="form-control" id="reviewTitle" placeholder="Summarize your experience">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="reviewContent" class="form-label">Review</label>
+                                            <textarea class="form-control" id="reviewContent" rows="4" placeholder="Share your thoughts about this course"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Course Features</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-video me-2 text-primary"></i> Duration</span>
+                                    <span class="fw-bold">32 hours</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-book me-2 text-primary"></i> Lectures</span>
+                                    <span class="fw-bold">145</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-file-alt me-2 text-primary"></i> Resources</span>
+                                    <span class="fw-bold">15</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-tasks me-2 text-primary"></i> Exercises</span>
+                                    <span class="fw-bold">8</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-language me-2 text-primary"></i> Language</span>
+                                    <span class="fw-bold">English</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-certificate me-2 text-primary"></i> Certificate</span>
+                                    <span class="fw-bold">Yes</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Recommended Courses</h5>
+                            <div class="d-flex mb-3">
+                                <img src="images/course2.jpg" class="rounded me-3" width="80" alt="Course">
+                                <div>
+                                    <h6 class="mb-1">Python for Data Science</h6>
+                                    <div class="text-warning small mb-1">
+                                        <i class="fas fa-star"></i> 4.7
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-primary fw-bold">$79.99</span>
+                                        <a href="#" class="text-muted"><i class="far fa-heart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <img src="images/course3.jpg" class="rounded me-3" width="80" alt="Course">
+                                <div>
+                                    <h6 class="mb-1">Flutter & Firebase Guide</h6>
+                                    <div class="text-warning small mb-1">
+                                        <i class="fas fa-star"></i> 4.8
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-primary fw-bold">$94.99</span>
+                                        <a href="#" class="text-muted"><i class="far fa-heart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <img src="images/course4.jpg" class="rounded me-3" width="80" alt="Course">
+                                <div>
+                                    <h6 class="mb-1">Node.js & Express Bootcamp</h6>
+                                    <div class="text-warning small mb-1">
+                                        <i class="fas fa-star"></i> 4.6
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-primary fw-bold">$74.99</span>
+                                        <a href="#" class="text-muted"><i class="far fa-heart"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%- include('../components/footer') %>

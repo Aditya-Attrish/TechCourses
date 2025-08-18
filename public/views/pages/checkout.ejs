@@ -1,0 +1,132 @@
+<%- include('../components/header', {title: `Checkout | TechCourse Market`}) %>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-header bg-white">
+                            <h1 class="h4 mb-0">Checkout</h1>
+                        </div>
+                        <div class="card-body">
+                            <!-- Progress Steps -->
+                            <ul class="nav nav-pills nav-fill mb-4">
+                                <li class="nav-item">
+                                    <span class="nav-link active">1. Information</span>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="nav-link disabled">2. Payment</span>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="nav-link disabled">3. Confirmation</span>
+                                </li>
+                            </ul>
+
+                            <form>
+                                <!-- Contact Information -->
+                                <h2 class="h5 mb-3">Contact Information</h2>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+
+                                <!-- Payment Method -->
+                                <h2 class="h5 mb-3 mt-4">Payment Method</h2>
+                                <div class="mb-4">
+                                    <div class="list-group">
+                                        <label class="list-group-item">
+                                            <input class="form-check-input me-2" type="radio" name="payment" checked>
+                                            Credit Card
+                                        </label>
+                                        <label class="list-group-item">
+                                            <input class="form-check-input me-2" type="radio" name="payment">
+                                            PayPal
+                                        </label>
+                                        <label class="list-group-item">
+                                            <input class="form-check-input me-2" type="radio" name="payment">
+                                            Cryptocurrency
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Credit Card Form -->
+                                <div class="credit-card-form">
+                                    <div class="mb-3">
+                                        <label for="card-number" class="form-label">Card Number</label>
+                                        <input type="text" class="form-control" id="card-number" placeholder="1234 5678 9012 3456">
+                                    </div>
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-md-6">
+                                            <label for="expiry" class="form-label">Expiry Date</label>
+                                            <input type="text" class="form-control" id="expiry" placeholder="MM/YY">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="cvv" class="form-label">CVV</label>
+                                            <input type="text" class="form-control" id="cvv" placeholder="123">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="name-on-card" class="form-label">Name on Card</label>
+                                        <input type="text" class="form-control" id="name-on-card">
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-between mt-4">
+                                    <a href="/cart" class="btn btn-outline-secondary">Back to Cart</a>
+                                    <button type="submit" class="btn btn-primary">Complete Purchase</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-header bg-white">
+                            <h2 class="h5 mb-0">Order Summary</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group mb-3">
+                                <div class="list-group-item d-flex justify-content-between">
+                                    <span>Complete Python Bootcamp</span>
+                                    <span>$89.99</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between">
+                                    <span>Modern React with Redux</span>
+                                    <span>$99.99</span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between">
+                                    <span>Subtotal</span>
+                                    <span>$189.98</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span>Discount</span>
+                                    <span class="text-danger">-$20.00</span>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between fw-bold">
+                                    <span>Total</span>
+                                    <span>$169.98</span>
+                                </div>
+                            </div>
+
+                            <div class="alert alert-success d-flex align-items-center mb-4">
+                                <i class="bi bi-shield-lock me-2"></i>
+                                <div>🔒 Secure checkout</div>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Promo code">
+                                <button class="btn btn-outline-secondary" type="button">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<%- include('../components/footer') %>

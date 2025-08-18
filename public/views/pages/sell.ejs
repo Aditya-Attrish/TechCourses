@@ -1,0 +1,354 @@
+<%- include('../components/header', {title: "Sell your courses | TechCourse Market"}) %>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Dropzone CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css">
+
+    <!-- Sell Course Header -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold mb-3">Sell Your Tech Course</h1>
+            <p class="lead mb-0">Share your knowledge and earn money by creating high-quality tech courses</p>
+        </div>
+    </section>
+
+    <!-- Sell Course Form -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card shadow-sm">
+                        <div class="card-body p-5">
+                            <h2 class="mb-4">Course Information</h2>
+                            <form id="courseForm">
+                                <!-- Step 1: Basic Info -->
+                                <div class="step" id="step1">
+                                    <div class="mb-4">
+                                        <label for="courseTitle" class="form-label">Course Title*</label>
+                                        <input type="text" class="form-control form-control-lg" id="courseTitle" required placeholder="e.g., Complete React Developer 2023">
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="courseSubtitle" class="form-label">Subtitle*</label>
+                                        <input type="text" class="form-control" id="courseSubtitle" required placeholder="A brief description of what students will learn">
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="courseDescription" class="form-label">Description*</label>
+                                        <textarea class="form-control" id="courseDescription" rows="5" required placeholder="Detailed description of your course"></textarea>
+                                        <div class="form-text">Describe what students will learn and how they'll benefit.</div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <label for="courseCategory" class="form-label">Category*</label>
+                                            <select class="form-select" id="courseCategory" required>
+                                                <option value="" selected disabled>Select a category</option>
+                                                <option value="web-development">Web Development</option>
+                                                <option value="mobile-development">Mobile Development</option>
+                                                <option value="data-science">Data Science</option>
+                                                <option value="cyber-security">Cyber Security</option>
+                                                <option value="cloud-computing">Cloud Computing</option>
+                                                <option value="programming-languages">Programming Languages</option>
+                                                <option value="game-development">Game Development</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <label for="courseLevel" class="form-label">Level*</label>
+                                            <select class="form-select" id="courseLevel" required>
+                                                <option value="" selected disabled>Select difficulty level</option>
+                                                <option value="beginner">Beginner</option>
+                                                <option value="intermediate">Intermediate</option>
+                                                <option value="advanced">Advanced</option>
+                                                <option value="all-levels">All Levels</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-end">
+                                        <button type="button" class="btn btn-primary next-step">Next: Curriculum</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 2: Curriculum -->
+                                <div class="step" id="step2" style="display: none;">
+                                    <h4 class="mb-4">Course Curriculum</h4>
+                                    <p class="text-muted mb-4">Organize your course into sections and lectures</p>
+                                    
+                                    <div id="courseSections">
+                                        <div class="section mb-4 border p-3 rounded">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h5>Section 1: Introduction</h5>
+                                                <button type="button" class="btn btn-sm btn-outline-danger remove-section">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label class="form-label">Section Title*</label>
+                                                <input type="text" class="form-control section-title" required placeholder="Section title">
+                                            </div>
+                                            
+                                            <div class="mb-3">
+                                                <label class="form-label">Section Description</label>
+                                                <textarea class="form-control section-description" rows="2" placeholder="What will students learn in this section?"></textarea>
+                                            </div>
+                                            
+                                            <div class="lectures mb-3">
+                                                <div class="lecture mb-2 border-bottom pb-2">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-grip-vertical handle me-2 text-muted"></i>
+                                                        <input type="text" class="form-control form-control-sm lecture-title" placeholder="Lecture title" required>
+                                                        <select class="form-select form-select-sm lecture-type ms-2" style="width: 120px;">
+                                                            <option value="video">Video</option>
+                                                            <option value="article">Article</option>
+                                                            <option value="quiz">Quiz</option>
+                                                            <option value="exercise">Exercise</option>
+                                                        </select>
+                                                        <button type="button" class="btn btn-sm btn-outline-danger ms-2 remove-lecture">
+                                                            <i class="fas fa-times"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <button type="button" class="btn btn-sm btn-outline-primary add-lecture">
+                                                <i class="fas fa-plus me-1"></i> Add Lecture
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <button type="button" class="btn btn-sm btn-outline-secondary mb-4 add-section">
+                                        <i class="fas fa-plus me-1"></i> Add Section
+                                    </button>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous</button>
+                                        <button type="button" class="btn btn-primary next-step">Next: Media</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 3: Media -->
+                                <div class="step" id="step3" style="display: none;">
+                                    <h4 class="mb-4">Course Media</h4>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <label class="form-label">Course Thumbnail*</label>
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div id="thumbnailPreview" class="mb-3" style="display: none;">
+                                                        <img id="thumbnailImage" src="#" class="img-fluid rounded" alt="Thumbnail preview" style="max-height: 200px;">
+                                                    </div>
+                                                    <div id="thumbnailUploadArea" class="dropzone dz-clickable">
+                                                        <div class="dz-message">
+                                                            <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+                                                            <p class="mb-1">Drag & drop your thumbnail here or click to browse</p>
+                                                            <p class="small text-muted">Recommended size: 1280x720 pixels</p>
+                                                        </div>
+                                                    </div>
+                                                    <input type="file" id="thumbnailInput" accept="image/*" style="display: none;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6 mb-4">
+                                            <label class="form-label">Promo Video (Optional)</label>
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div id="videoPreview" class="mb-3" style="display: none;">
+                                                        <video id="promoVideo" controls class="img-fluid rounded" style="max-height: 200px;">
+                                                            Your browser does not support the video tag.
+                                                        </video>
+                                                    </div>
+                                                    <div id="videoUploadArea" class="dropzone dz-clickable">
+                                                        <div class="dz-message">
+                                                            <i class="fas fa-video fa-3x text-muted mb-3"></i>
+                                                            <p class="mb-1">Drag & drop your promo video here or click to browse</p>
+                                                            <p class="small text-muted">MP4 format, max 5 minutes</p>
+                                                        </div>
+                                                    </div>
+                                                    <input type="file" id="videoInput" accept="video/*" style="display: none;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Additional Resources (Optional)</label>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div id="resourcesUploadArea" class="dropzone dz-clickable">
+                                                    <div class="dz-message">
+                                                        <i class="fas fa-file-alt fa-3x text-muted mb-3"></i>
+                                                        <p class="mb-1">Drag & drop your resource files here or click to browse</p>
+                                                        <p class="small text-muted">PDFs, slides, code samples, etc.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous</button>
+                                        <button type="button" class="btn btn-primary next-step">Next: Pricing</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 4: Pricing -->
+                                <div class="step" id="step4" style="display: none;">
+                                    <h4 class="mb-4">Pricing & Settings</h4>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <label for="coursePrice" class="form-label">Course Price (USD)*</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="coursePrice" min="0" step="0.01" required value="49.99">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <label for="courseDiscount" class="form-label">Discount Price (Optional)</label>
+                                            <div class="input-group">
+                                                <span class="input-group-text">$</span>
+                                                <input type="number" class="form-control" id="courseDiscount" min="0" step="0.01" placeholder="0.00">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label">Course Language*</label>
+                                        <select class="form-select" id="courseLanguage" required>
+                                            <option value="english" selected>English</option>
+                                            <option value="spanish">Spanish</option>
+                                            <option value="french">French</option>
+                                            <option value="german">German</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="certificateAvailable" checked>
+                                            <label class="form-check-label" for="certificateAvailable">
+                                                Certificate of completion available
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="featuredCourse">
+                                            <label class="form-check-label" for="featuredCourse">
+                                                Feature this course on the homepage (additional fee may apply)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous</button>
+                                        <button type="button" class="btn btn-primary next-step">Next: Publish</button>
+                                    </div>
+                                </div>
+                                
+                                <!-- Step 5: Publish -->
+                                <div class="step" id="step5" style="display: none;">
+                                    <h4 class="mb-4">Review & Publish</h4>
+                                    
+                                    <div class="card mb-4">
+                                        <div class="card-body">
+                                            <h5 class="mb-3">Course Summary</h5>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p><strong>Title:</strong> <span id="summaryTitle"></span></p>
+                                                    <p><strong>Category:</strong> <span id="summaryCategory"></span></p>
+                                                    <p><strong>Level:</strong> <span id="summaryLevel"></span></p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p><strong>Price:</strong> $<span id="summaryPrice"></span></p>
+                                                    <p><strong>Sections:</strong> <span id="summarySections"></span></p>
+                                                    <p><strong>Language:</strong> <span id="summaryLanguage"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="publishOptions" class="form-label">Publishing Options*</label>
+                                        <select class="form-select" id="publishOptions" required>
+                                            <option value="" selected disabled>Select publishing option</option>
+                                            <option value="publish">Publish Now</option>
+                                            <option value="draft">Save as Draft</option>
+                                            <option value="private">Private (Only visible with link)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="termsAgreement" required>
+                                            <label class="form-check-label" for="termsAgreement">
+                                                I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a> and confirm that this course is my original work
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <button type="button" class="btn btn-outline-secondary prev-step">Previous</button>
+                                        <button type="submit" class="btn btn-success">Publish Course</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <p class="text-muted">Need help creating your course? <a href="#">Read our instructor guide</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Terms Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Terms of Service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>Instructor Agreement</h6>
+                    <p>By publishing a course on TechCourse Market, you agree to our instructor terms and conditions. You retain ownership of your content but grant us a license to distribute it through our platform.</p>
+                    
+                    <h6 class="mt-4">Content Requirements</h6>
+                    <ul>
+                        <li>All course content must be your original work</li>
+                        <li>You must have the rights to all materials included in your course</li>
+                        <li>Courses must provide educational value and meet our quality standards</li>
+                        <li>No misleading or deceptive content is allowed</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Revenue Share</h6>
+                    <p>Instructors earn 70% of the net revenue from course sales. We handle payment processing, customer support, and marketing.</p>
+                    
+                    <h6 class="mt-4">Refund Policy</h6>
+                    <p>We offer a 30-day money-back guarantee for all courses. Refunds are deducted from instructor earnings.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dropzone JS -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <!-- SortableJS -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/sell.js"></script>
+
+<%- include('../components/footer') %>

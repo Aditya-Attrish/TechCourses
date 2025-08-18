@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | TechCourse Market</title>
+    <!-- Bootstrap CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page">
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="auth-card">
+                    <div class="text-center mb-4">
+                        <a href="index.html">
+                            <i class="fas fa-laptop-code fa-3x text-primary mb-3"></i>
+                        </a>
+                        <h2>Create Your Account</h2>
+                        <p class="text-muted">Join thousands of students and instructors</p>
+                    </div>
+                    
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email Address*</label>
+                            <input type="email" class="form-control" id="registerEmail" required>
+                            <div class="invalid-feedback">Please provide a valid email address</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">Username*</label>
+                            <input type="text" class="form-control" id="registerUsername" required minlength="3">
+                            <div class="invalid-feedback">Username must be at least 3 characters</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password*</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="registerPassword" required minlength="8">
+                                <button class="btn btn-outline-secondary toggle-password" type="button">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="invalid-feedback">Password must be at least 8 characters</div>
+                            <div class="password-strength mt-2">
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                </div>
+                                <small class="text-muted">Password strength: <span id="strengthText">Weak</span></small>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="registerConfirmPassword" class="form-label">Confirm Password*</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="registerConfirmPassword" required>
+                                <button class="btn btn-outline-secondary toggle-password" type="button">
+                                    <i class="far fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="invalid-feedback">Passwords do not match</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="acceptTerms" required>
+                                <label class="form-check-label" for="acceptTerms">
+                                    I agree to the <a href="#" data-bs-toggle="modal" data-bs-target="#termsModal">Terms of Service</a> and <a href="#">Privacy Policy</a>*
+                                </label>
+                                <div class="invalid-feedback">You must agree to the terms</div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100 py-2 mb-3">Create Account</button>
+                        
+                        <div class="text-center mb-3">
+                            <span class="text-muted">or sign up with</span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-center gap-3 mb-4">
+                            <button type="button" class="btn btn-outline-secondary btn-sm social-btn">
+                                <i class="fab fa-google"></i> Google
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm social-btn">
+                                <i class="fab fa-github"></i> GitHub
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm social-btn">
+                                <i class="fab fa-linkedin-in"></i> LinkedIn
+                            </button>
+                        </div>
+                        
+                        <div class="text-center">
+                            <p class="mb-0">Already have an account? <a href="login.html">Log in</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div class="modal fade" id="termsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Terms of Service</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6>1. Account Terms</h6>
+                    <p>You must be a human to create an account. Accounts registered by "bots" or other automated methods are not permitted.</p>
+                    
+                    <h6 class="mt-4">2. Acceptable Use</h6>
+                    <p>You agree not to misuse the TechCourse Market service. For example, you must not:</p>
+                    <ul>
+                        <li>Attempt to access or search our services by any means other than through our interfaces</li>
+                        <li>Interfere with or disrupt the service or servers</li>
+                        <li>Violate any laws in your jurisdiction</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">3. Content Ownership</h6>
+                    <p>You retain ownership of any content you submit to the service. By submitting content, you grant us a license to display and distribute it.</p>
+                    
+                    <h6 class="mt-4">4. Privacy</h6>
+                    <p>Your privacy is important to us. Please review our Privacy Policy to understand how we collect and use your information.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/auth.js"></script>
+</body>
+</html>
