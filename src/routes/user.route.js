@@ -21,5 +21,9 @@ userRoute.get('/purchase', (req, res) => {
     res.render(join(__dirname, "../../public","./views/pages/purchase.ejs"))
 })
 
+userRoute.get('/saved', (req, res) => {
+    res.render(join(__dirname, "../../public","./views/pages/savedCourses.ejs"))
+})
+
 
 export { userRoute }

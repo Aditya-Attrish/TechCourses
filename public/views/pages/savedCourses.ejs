@@ -1,0 +1,23 @@
+<%- include('../components/header', {title: "Saved Courses - TechCourse Market"}) %>
+
+<section class="container py-5">
+    <h1 class="text-center mb-3">Saved Courses</h1>
+    <% if(true) { %>
+        <div class="row row-cols-1 row-cols-lg-3">
+            <div class="col">
+                <%- include('../components/course-card') %>
+            </div>
+            <div class="col">
+                <%- include('../components/course-card') %>
+            </div>
+            <div class="col">
+                <%- include('../components/course-card') %>
+            </div>
+        </div>
+    <% } else { %>
+        <div class="bg-info">No save courses</div>
+        <a class="btn btn-primary" href="/courses"> Check Course</a>
+    <% } %>
+</section>
+
+<%- include('../components/footer') %>

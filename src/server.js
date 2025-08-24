@@ -30,11 +30,7 @@ app.get('/login', (req, res) => {
 
 app.post('/register', registerUser)
 app.post('/login', loginUser)
-// app.post('/upload', (req, res) =>{
-//   res.status(200).json({
-//     message: "success"
-//   })
-// })
+
 
 // connectDB()
 // .then(()=>{
