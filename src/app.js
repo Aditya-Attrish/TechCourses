@@ -1,5 +1,6 @@
 import express from 'express';
 import cookieParser from'cookie-parser';
+import { checkForAuthentication } from './middlewares/ckeckAuth.middleware.js';
 import { route } from './routes/courses.route.js';
 import { userRoute } from './routes/user.route.js';
 import apiRouter from './routes/user-api.route.js';
@@ -13,6 +14,7 @@ app.set('view engine',"ejs")
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
+app.use(checkForAuthentication('authToken'))
 app.use(express.static("public"))
 
 // Routes

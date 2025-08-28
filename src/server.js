@@ -17,7 +17,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.get('/', (req, res) => {
-  res.render(join(__dirname, '../public','./views/pages/index.ejs'))
+  res.render(join(__dirname, '../public','./views/pages/index.ejs'), {
+    local: req.user
+  });
 })
 
 app.get('/register', (req, res) => {
@@ -30,6 +32,13 @@ app.get('/login', (req, res) => {
 
 app.post('/register', registerUser)
 app.post('/login', loginUser)
+
+app.get('/logout', (req, res) => {
+  if (req.user) {
+    res.clearCookie('authToken').redirect('/');
+  }
+  res.redirect('/login')
+})
 
 
 // connectDB()

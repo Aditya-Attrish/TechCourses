@@ -1,162 +1,275 @@
 <%- include('../components/header', {title: `My Purchase | TechCourse Market`}) %>
 
     <style>
-        .purchase-card {
-            transition: transform 0.2s;
+        :root{
+            --primary: #4e73df;
         }
-        .purchase-card:hover {
-            transform: translateY(-2px);
+        .page-header {
+            background: white;
+            padding: 2rem 0;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            margin-bottom: 2rem;
         }
-        .invoice-badge {
-            font-size: 0.75rem;
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.15);
+        }
+        
+        .course-thumbnail {
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .progress {
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            padding: 20px;
+            height: fit-content;
+        }
+        
+        .stats-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stats-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .continue-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .continue-btn:hover {
+            background: #2e59d9;
         }
     </style>
 
     <!-- Main Content -->
-    <div class="container my-5">
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h1 class="h2">My Courses</h1>
+                    <p class="mb-0">Continue your learning journey</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus me-1"></i> Find New Courses
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
         <div class="row">
-            <!-- Sidebar Navigation -->
-            <div class="col-lg-3 mb-4">
-                <div class="card">
-                    <div class="card-body text-center py-4">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle mb-3" width="80" height="80" alt="Profile">
-                        <h5 class="card-title mb-1">John Doe</h5>
-                        <p class="text-muted mb-3">Member since June 2022</p>
+            <!-- Sidebar with Filters -->
+            <div class="col-lg-3">
+                <div class="sidebar mb-4">
+                    <h5 class="mb-3">Filters</h5>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Categories</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat1" checked>
+                            <label class="form-check-label" for="cat1">Web Development</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat2" checked>
+                            <label class="form-check-label" for="cat2">Data Science</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat3" checked>
+                            <label class="form-check-label" for="cat3">Mobile Development</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat4">
+                            <label class="form-check-label" for="cat4">Cloud Computing</label>
+                        </div>
                     </div>
-                    <div class="list-group list-group-flush">
-                        <a href="/account" class="list-group-item list-group-item-action">
-                            <i class="bi bi-person me-2"></i> Profile
-                        </a>
-                        <a href="/purchases" class="list-group-item list-group-item-action active">
-                            <i class="bi bi-receipt me-2"></i> Purchase History
-                        </a>
-                        <a href="/account/security" class="list-group-item list-group-item-action">
-                            <i class="bi bi-shield-lock me-2"></i> Security
-                        </a>
-                        <a href="/account/settings" class="list-group-item list-group-item-action">
-                            <i class="bi bi-gear me-2"></i> Settings
-                        </a>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Progress</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="prog1" checked>
+                            <label class="form-check-label" for="prog1">In Progress</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="prog2">
+                            <label class="form-check-label" for="prog2">Not Started</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="prog3">
+                            <label class="form-check-label" for="prog3">Completed</label>
+                        </div>
                     </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Sort By</label>
+                        <select class="form-select">
+                            <option>Recently Accessed</option>
+                            <option>Progress (High to Low)</option>
+                            <option>Progress (Low to High)</option>
+                            <option>Alphabetical</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-primary w-100">Apply Filters</button>
+                </div>
+                
+                <!-- Learning Stats -->
+                <div class="stats-card mb-4">
+                    <i class="fas fa-trophy fa-2x text-warning mb-2"></i>
+                    <h3 class="stats-number">8</h3>
+                    <p class="mb-0">Courses Enrolled</p>
+                </div>
+                
+                <div class="stats-card">
+                    <i class="fas fa-check-circle fa-2x text-success mb-2"></i>
+                    <h3 class="stats-number">42%</h3>
+                    <p class="mb-0">Average Completion</p>
                 </div>
             </div>
 
-            <!-- Purchases Content -->
+            <!-- Course List -->
             <div class="col-lg-9">
-                <div class="card mb-4">
-                    <div class="card-header bg-white d-flex justify-content-between align-items-center">
-                        <h1 class="h5 mb-0">Purchase History</h1>
-                        <div class="dropdown">
-                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown">
-                                <i class="bi bi-funnel"></i> Filter
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item active" href="#">All Purchases</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
-                                <li><a class="dropdown-item" href="#">Last 6 Months</a></li>
-                                <li><a class="dropdown-item" href="#">Last 30 Days</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Order</th>
-                                        <th>Date</th>
-                                        <th>Items</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>#TL-2023-158</td>
-                                        <td>Aug 15, 2023</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://example.com/thumbnails/react.jpg" class="rounded me-2" width="40" height="25" alt="React Course">
-                                                <span>React JS Masterclass</span>
-                                            </div>
-                                        </td>
-                                        <td>$59.99</td>
-                                        <td><span class="badge bg-success">Completed</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary">Invoice</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#TL-2023-142</td>
-                                        <td>Jul 28, 2023</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <img src="https://example.com/thumbnails/python.jpg" class="rounded me-2" width="40" height="25" alt="Python Course">
-                                                <span>Python for Beginners</span>
-                                            </div>
-                                        </td>
-                                        <td>$29.99</td>
-                                        <td><span class="badge bg-success">Completed</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary">Invoice</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>#TL-2023-117</td>
-                                        <td>Jun 10, 2023</td>
-                                        <td>
-                                            <div class="d-flex flex-column">
-                                                <div class="d-flex align-items-center mb-2">
-                                                    <img src="https://example.com/thumbnails/webdev.jpg" class="rounded me-2" width="40" height="25" alt="Web Dev Course">
-                                                    <span>Complete Web Development Bootcamp</span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>$129.98</td>
-                                        <td><span class="badge bg-success">Completed</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-outline-primary">Invoice</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4>Your Learning Dashboard</h4>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-primary active">
+                            <i class="fas fa-grip-horizontal"></i>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary">
+                            <i class="fas fa-list"></i>
+                        </button>
                     </div>
                 </div>
 
-                <div class="card">
-                    <div class="card-header bg-white">
-                        <h2 class="h5 mb-0">Billing Information</h2>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <h3 class="h6">Payment Methods</h3>
-                                <div class="card mb-3">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between">
-                                            <div>
-                                                <i class="bi bi-credit-card"></i> Visa ending in 4242
-                                                <span class="badge bg-primary invoice-badge ms-2">Default</span>
-                                            </div>
-                                            <button class="btn btn-sm btn-outline-secondary">Edit</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-plus"></i> Add Payment Method
-                                </button>
+                <div class="row">
+                    <!-- Course 1 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="course-card">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="course-thumbnail" alt="Web Development">
+                                <span class="badge bg-primary category-badge">Web Dev</span>
+                                <span class="badge bg-warning badge-popular">Popular</span>
                             </div>
-                            <div class="col-md-6">
-                                <h3 class="h6">Billing Address</h3>
-                                <address>
-                                    <strong>John Doe</strong><br>
-                                    123 Main Street<br>
-                                    Apt 4B<br>
-                                    New York, NY 10001<br>
-                                    United States
-                                </address>
-                                <button class="btn btn-sm btn-outline-secondary">Edit Address</button>
+                            <div class="p-3">
+                                <h5 class="mb-1">Complete Web Development Bootcamp</h5>
+                                <p class="text-muted small mb-2">Updated June 2023</p>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="progress w-75">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <small class="text-muted">65%</small>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">12/20 lessons</small>
+                                    <button class="continue-btn">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 2 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="course-card">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="course-thumbnail" alt="Python Programming">
+                                <span class="badge bg-info category-badge">Programming</span>
+                            </div>
+                            <div class="p-3">
+                                <h5 class="mb-1">Python for Beginners</h5>
+                                <p class="text-muted small mb-2">Updated May 2023</p>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="progress w-75">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <small class="text-muted">30%</small>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">6/20 lessons</small>
+                                    <button class="continue-btn">Continue</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Course 3 -->
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="course-card">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="course-thumbnail" alt="React JS">
+                                <span class="badge bg-primary category-badge">Web Dev</span>
+                            </div>
+                            <div class="p-3">
+                                <h5 class="mb-1">React JS Masterclass</h5>
+                                <p class="text-muted small mb-2">Updated July 2023</p>
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div class="progress w-75">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <small class="text-muted">80%</small>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">16/20 lessons</small>
+                                    <button class="continue-btn">Continue</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -164,5 +277,6 @@
             </div>
         </div>
     </div>
+ 
 
 <%- include('../components/footer') %>
