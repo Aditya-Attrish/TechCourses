@@ -8,12 +8,12 @@
                     <p class="lead text-muted">Find the perfect course to boost your tech skills or career.</p>
                 </div>
                 <div class="col-md-6">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control form-control-lg" placeholder="Search courses...">
+                    <form class="input-group mb-3" role="searchbox">
+                        <input type="text" role="search" class="form-control form-control-lg" placeholder="Search courses...">
                         <button class="btn btn-primary" type="button">
                             <i class="fas fa-search"></i>
                         </button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -25,12 +25,11 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="d-flex flex-wrap gap-2">
-                        <button class="btn btn-outline-primary active">All</button>
-                        <button class="btn btn-outline-primary">Web Development</button>
-                        <button class="btn btn-outline-primary">Mobile Development</button>
-                        <button class="btn btn-outline-primary">Data Science</button>
-                        <button class="btn btn-outline-primary">Cyber Security</button>
-                        <button class="btn btn-outline-primary">Cloud Computing</button>
+                        <a href="courses/?cat=All" class="btn btn-outline-primary <%= currCat === 'All' ? 'active': '' %>">All</a>
+                        <% uniqueCat.forEach((cat)=>{ %>
+                            <a href="courses/?cat=<%= cat %>" class="btn btn-outline-primary <%= currCat === cat ? 'active': '' %>"><%= cat %></a>
+                        <% }); %>
+                        
                     </div>
                 </div>
                 <div class="col-md-4 text-md-end mt-3 mt-md-0">

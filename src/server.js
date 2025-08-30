@@ -17,17 +17,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.get('/', (req, res) => {
-  res.render(join(__dirname, '../public','./views/pages/index.ejs'), {
-    local: req.user
-  });
+  res.render('pages/index');
 })
 
 app.get('/register', (req, res) => {
-    res.sendFile(join(__dirname, '../public','./views/pages/register.html'))
+    res.sendFile(join(__dirname, './views/pages/register.html'))
 })
 
 app.get('/login', (req, res) => {
-    res.sendFile(join(__dirname, '../public','./views/pages/login.html'))
+    res.sendFile(join(__dirname, './views/pages/login.html'))
 })
 
 app.post('/register', registerUser)

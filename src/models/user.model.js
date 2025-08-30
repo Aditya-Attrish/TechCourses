@@ -42,6 +42,35 @@ const userSchema = new Schema({
     enum: ['student', 'instructor', 'admin'],
     default: 'student'
   },
+  instructorProfile: {
+    skills: [{
+      type: String,
+      trim: true,
+      maxlength: [50, 'Each skill cannot exceed 50 characters']
+    }],
+    headline: {
+      type: String,
+      maxlength: [200, 'Headline cannot exceed 200 characters']
+    },
+    socialLinks: {
+      twitter: String,
+      linkedin: String,
+      github: String,
+      youtube: String
+    }
+  },
+  studentProfile: {
+    interests: [{
+      type: String,
+      trim: true,
+      maxlength: [50, 'Each interest cannot exceed 50 characters']
+    }],
+    learningGoals: [{
+      type: String,
+      trim: true,
+      maxlength: [200, 'Each learning goal cannot exceed 200 characters']
+    }]
+  },
   buyHistory:[
     {
       type: Schema.Types.ObjectId,
@@ -78,4 +107,4 @@ userSchema.methods.comparePassword = async function(candidatePassword) {
   return await compare(candidatePassword, this.password);
 };
 
-export const User = model('User', userSchema);
+export default User = model('User', userSchema);

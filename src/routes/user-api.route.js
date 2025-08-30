@@ -3,15 +3,17 @@ const apiRouter = express.Router()
 import { upload } from '../utils/fileUploader.js';
 
 apiRouter.post('/edit', upload.single("avatar"), (req, res) => {
-    if (!req.file) {
-        return res.status(400).json({
-          success: false,
-          message: 'No file uploaded'
-        });
+    const formData = {...req.body}
+    if (req.file) {
+
     }
 
     res.status(200).json({
-        message: "success"
+        success: true,
+        message: 'Profile updated successfully',
+        avatar: formData.username,
+        email: formData.email,
+        Role: formData.role
     })
 })
 

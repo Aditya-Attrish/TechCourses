@@ -1,0 +1,386 @@
+<%- include('../components/header', {title: `Get Started Selling | TechCourse Market`}) %>
+
+    <style>
+        :root {
+            --primary: #4e73df;
+            --secondary: #6c757d;
+            --success: #1cc88a;
+            --warning: #f6c23e;
+            --danger: #e74a3b;
+            --dark: #5a5c69;
+            --light: #f8f9fc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(78, 115, 223, 0.85) 0%, rgba(34, 74, 190, 0.85) 100%), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .step-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            margin-bottom: 2rem;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 2rem 0 rgba(58, 59, 69, 0.15);
+        }
+        
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            margin: -25px auto 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .benefit-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 15px;
+            margin: 3rem 0;
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+            padding: 25px;
+            height: 100%;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eaecf4;
+            padding-bottom: 1.5rem;
+        }
+    </style>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Share Your Knowledge & Earn Money</h1>
+            <p class="lead mb-4">Join thousands of instructors teaching on TechCourse</p>
+            <a href="/sell/get-started" class="btn btn-light btn-lg px-4 py-2 fw-bold">Start Teaching Today</a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container mb-5">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stats-number">50,000+</div>
+                <p>Instructors</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stats-number">150,000+</div>
+                <p>Courses</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stats-number">$150M+</div>
+                <p>Earned</p>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stats-number">25M+</div>
+                <p>Students</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="container mb-5" id="get-started">
+        <h2 class="text-center mb-5">How to Become an Instructor</h2>
+        
+        <div class="row">
+            <!-- Step 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="card-body text-center">
+                        <h4>Apply to Teach</h4>
+                        <p>Complete our instructor application form with your details and expertise areas.</p>
+                        <div class="mt-4">
+                            <i class="fas fa-clipboard-list fa-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="card-body text-center">
+                        <h4>Create Your Course</h4>
+                        <p>Plan your curriculum, record videos, and create resources for your students.</p>
+                        <div class="mt-4">
+                            <i class="fas fa-video fa-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="card-body text-center">
+                        <h4>Publish & Earn</h4>
+                        <p>Launch your course and start earning revenue from student enrollments.</p>
+                        <div class="mt-4">
+                            <i class="fas fa-chart-line fa-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="container mb-5">
+        <h2 class="text-center mb-5">Why Teach With Us?</h2>
+        
+        <div class="row">
+            <!-- Benefit 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h4>Earn Money</h4>
+                    <p>Get paid monthly for your courses. Top instructors earn $10,000+ per month.</p>
+                </div>
+            </div>
+            
+            <!-- Benefit 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Reach Students</h4>
+                    <p>Access our global community of 25+ million eager learners.</p>
+                </div>
+            </div>
+            
+            <!-- Benefit 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4>Powerful Tools</h4>
+                    <p>Use our course creation tools, analytics, and marketing resources.</p>
+                </div>
+            </div>
+            
+            <!-- Benefit 4 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>Support</h4>
+                    <p>Get help from our dedicated instructor support team.</p>
+                </div>
+            </div>
+            
+            <!-- Benefit 5 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h4>Analytics</h4>
+                    <p>Track your course performance with detailed analytics.</p>
+                </div>
+            </div>
+            
+            <!-- Benefit 6 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Marketing</h4>
+                    <p>We promote your courses to our extensive student base.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="container mb-5">
+        <h2 class="text-center mb-5">Instructor Success Stories</h2>
+        
+        <div class="row">
+            <!-- Testimonial 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson" class="testimonial-avatar">
+                        <div>
+                            <h5 class="mb-0">Sarah Johnson</h5>
+                            <p class="text-muted mb-0">Web Development Instructor</p>
+                        </div>
+                    </div>
+                    <p class="mb-0">"Teaching on TechCourse has allowed me to reach students globally while earning a full-time income from my passion."</p>
+                    <div class="mt-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Michael Chen" class="testimonial-avatar">
+                        <div>
+                            <h5 class="mb-0">Michael Chen</h5>
+                            <p class="text-muted mb-0">Data Science Instructor</p>
+                        </div>
+                    </div>
+                    <p class="mb-0">"The support from TechCourse helped me create my first course, which now earns me $5,000+ monthly."</p>
+                    <div class="mt-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="testimonial-card">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica Williams" class="testimonial-avatar">
+                        <div>
+                            <h5 class="mb-0">Jessica Williams</h5>
+                            <p class="text-muted mb-0">UX Design Instructor</p>
+                        </div>
+                    </div>
+                    <p class="mb-0">"I've built a thriving community of learners and found financial freedom through teaching online."</p>
+                    <div class="mt-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Share Your Knowledge?</h2>
+            <p class="lead mb-4">Join our community of expert instructors and start earning today</p>
+            <a href="#" class="btn btn-light btn-lg px-4 py-2 fw-bold me-3">Apply Now</a>
+            <a href="#" class="btn btn-outline-light btn-lg px-4 py-2">Learn More</a>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container mb-5">
+        <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="faq-item">
+                    <h4>How much can I earn?</h4>
+                    <p>Instructors earn based on course enrollments. Most active instructors earn between $1,000-$10,000 per month, with top instructors earning significantly more.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>How much time does it take to create a course?</h4>
+                    <p>Most instructors spend 4-8 weeks creating their first course, depending on the complexity and their availability.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What support do you provide?</h4>
+                    <p>We offer comprehensive resources including course planning guides, video production tips, and a dedicated instructor support team to help you succeed.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>What topics can I teach?</h4>
+                    <p>You can teach any topic you're knowledgeable about! Popular categories include programming, design, business, photography, music, and more.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h4>How do I get paid?</h4>
+                    <p>We pay instructors monthly via PayPal, bank transfer, or other payment methods available in your country.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%- include('../components/footer') %>
