@@ -18,7 +18,15 @@ const __dirname = dirname(__filename);
 
 app.get('/', (req, res) => {
   res.render('pages/index');
-})
+});
+
+app.get('/about', (req, res) => {
+  res.render('pages/about');
+});
+
+app.get('/contact', (req, res) => {
+  res.render('pages/contact');
+});
 
 app.get('/register', (req, res) => {
     res.sendFile(join(__dirname, './views/pages/register.html'))
